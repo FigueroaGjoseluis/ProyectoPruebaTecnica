@@ -1,0 +1,22 @@
+﻿@model List<ProyectoPrueba.Models.Tarea>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Tareas</h1>
+
+<button class="btn btn-primary"><a asp-controller="Home" asp-action="agregar">Agregar nueva tarea</a></button>
+
+<h3>Listado de tareas</h3>
+
+@{ 
+    foreach(var item in Model) { 
+    
+        <div><h4>@item.Nombre</h4><button class="btn btn-success"><a href="Home/Completado?id=@item.Id">Completado</a></button><button class="btn btn-danger"><a href="Home/Borrar?id=@item.Id">Borrar</a></button></div>
+   
+    
+    }
+
+}
+
